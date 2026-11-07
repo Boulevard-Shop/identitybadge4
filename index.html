@@ -1,68 +1,204 @@
-<!-- ... existing code ... -->
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Identity Badge</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            serif: ['"Bodoni Moda"', 'Georgia', 'serif'],
+            brand: ['Cinzel', 'Times New Roman', 'serif'],
+          },
+          colors: {
+            badgeGreen: '#b7e6ab',
+            ringGreen: '#7bd164',
+            cardBg: '#eceef2',
+            btnGray: '#6e7278',
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #ffffff;
+      background-color: #f5f5f7;
       -webkit-tap-highlight-color: transparent;
       user-select: none;
     }
-    
-    .font-badge-title {
-      font-family: 'Bodoni Moda', serif;
-    }
 
-    .font-emaar {
-      font-family: 'Bodoni Moda', serif;
-      letter-spacing: 0.18em;
-    }
-
-    /* Plain white clean background */
-    .app-bg {
-      background-color: #ffffff;
+    /* Fine textured background */
+    .badge-bg {
+      background-color: #fcfcfc;
+      background-image: radial-gradient(#000000 0.4px, transparent 0.4px);
+      background-size: 16px 16px;
     }
   </style>
 </head>
-<body class="app-bg min-h-screen text-slate-900 flex flex-col items-center justify-between p-4 pb-8 max-w-md mx-auto relative overflow-x-hidden">
+<body class="flex items-center justify-center min-h-screen text-slate-900 antialiased p-0 sm:p-4">
 
-  <!-- Top Navigation Header with Back Arrow & Centered Title -->
-  <div class="w-full relative flex items-center justify-center pt-2 pb-4 px-2">
-    <button class="absolute left-2 text-slate-800 text-2xl font-light hover:opacity-70 transition-opacity active:scale-95 px-1 cursor-pointer" onclick="console.log('Back clicked')">
-      &#10094;
+  <!-- Mobile Container Wrapper -->
+  <div class="w-full max-w-[420px] badge-bg min-h-[840px] sm:rounded-[44px] shadow-2xl flex flex-col justify-between overflow-hidden relative border border-gray-200/80">
+
+    <!-- Top Left Back Arrow -->
+    <button class="absolute top-6 left-6 text-black hover:opacity-70 transition-opacity z-20 cursor-pointer p-1">
+      <svg class="w-6 h-6 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"></path>
+      </svg>
     </button>
-    <h1 class="font-badge-title text-2xl font-bold tracking-tight text-slate-900 text-center">
-      Identity Badge
-    </h1>
-  </div>
 
-  <!-- Main Content Body -->
-  <div class="w-full flex flex-col items-center flex-grow justify-center -mt-2">
-    
-    <!-- Profile Photo Container (Overlapping light grey card top) -->
-    <div class="relative z-20 -mb-28">
-      <div class="w-64 h-64 rounded-full p-[3.5px] bg-[#7cd362] shadow-xs flex items-center justify-center overflow-hidden bg-white">
-        <img 
-          src="https://i.postimg.cc/bvCK6Hkq/IMG-5696.jpg" 
-          alt="Profile" 
-          class="w-full h-full object-cover rounded-full"
-        />
+    <!-- Main Content Area -->
+    <div class="px-5 pt-8 pb-8 flex-1 flex flex-col items-center justify-between z-10">
+
+      <!-- Header Title -->
+      <div class="text-center mt-2 mb-1">
+        <h1 class="font-serif font-bold text-[31px] text-black tracking-tight leading-tight">Identity Badge</h1>
+      </div>
+
+      <!-- Unified Card Stack with Upper Grey Backdrop under Profile Image -->
+      <div class="w-full relative mt-4 mb-2 flex flex-col items-center">
+        
+        <!-- Profile Image Stacked Above Grey Background -->
+        <div class="relative z-10 flex justify-center items-center -mb-20">
+          <div class="w-[280px] h-[280px] rounded-full p-[4px] border-[4px] border-[#7cd362] flex items-center justify-center shadow-xs bg-[#fcfcfc]">
+            <div class="w-full h-full rounded-full overflow-hidden bg-gray-900 relative">
+              <img 
+                src="https://i.postimg.cc/bvCK6Hkq/IMG-5696.jpg" 
+                alt="Ali Abdelaziz" 
+                class="w-full h-full object-cover object-center"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Details Card Container -->
+        <div class="w-full bg-[#eceef2] rounded-[30px] pt-24 pb-2 overflow-hidden shadow-xs">
+          <div class="w-full">
+            
+            <!-- Full Width Flat Lighter Green Banner (No rounded corners, end-to-end) -->
+            <div class="bg-[#b7e6ab] px-5 py-3.5 flex justify-between items-center w-full">
+              <div class="flex flex-col">
+                <span class="text-[13.5px] text-gray-700 font-normal leading-tight">Username</span>
+                <span class="text-[19px] font-bold text-black leading-snug tracking-tight">Ali Abdelaziz</span>
+              </div>
+              <div class="flex flex-col items-end">
+                <span class="text-[13.5px] text-gray-700 font-normal leading-tight">Type</span>
+                <span class="text-[19px] font-bold text-black leading-snug tracking-tight">Resident</span>
+              </div>
+            </div>
+
+            <!-- Unit & QR Code Area -->
+            <div class="p-5 bg-[#eceef2] flex justify-between items-center">
+              <div class="flex flex-col max-w-[78%]">
+                <span class="text-[13.5px] text-gray-500 font-normal">Unit</span>
+                <span class="text-[15px] sm:text-[16px] font-semibold text-black leading-snug mt-0.5 whitespace-nowrap overflow-hidden text-ellipsis">Boulevard Residence 2-D-3-5</span>
+              </div>
+              
+              <!-- QR Code Button -->
+              <button onclick="toggleQRModal()" class="w-11 h-11 bg-white/90 rounded-full flex items-center justify-center border border-gray-300/40 shadow-xs active:scale-95 transition-transform cursor-pointer shrink-0">
+                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"></path>
+                </svg>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Action Button -->
+      <button 
+        id="openGateBtn"
+        onclick="startInButtonCountdown()" 
+        class="w-full bg-[#6d7177] hover:bg-[#5f6368] active:bg-[#52565b] text-white font-medium text-[17px] py-3.5 px-6 rounded-[16px] shadow-xs active:scale-[0.99] transition-all duration-150 cursor-pointer flex items-center justify-center">
+        <span id="btnText">Open Gate</span>
+      </button>
+
+      <!-- Fine Warning Text -->
+      <p class="text-[13px] text-center text-gray-800 font-normal px-2 mt-2 leading-snug">
+        Any proven manipulation of this identity will result in a EGP 30,000 fine and user suspension.
+      </p>
+
+      <!-- Footer Branding Logo -->
+      <div class="mt-5 text-center flex flex-col items-center">
+        <span class="font-brand text-[23px] font-normal tracking-[0.22em] text-black leading-none uppercase">EMAAR</span>
+        <span class="text-[9.5px] tracking-[0.38em] text-gray-500 font-medium mt-1 uppercase">MISR</span>
+      </div>
+
+    </div>
+
+    <!-- QR Code Modal -->
+    <div id="qrModal" class="hidden absolute inset-0 bg-black/40 z-50 flex items-center justify-center p-6 backdrop-blur-sm">
+      <div class="w-[280px] bg-white rounded-[22px] p-6 shadow-2xl flex flex-col items-center text-center border border-gray-100">
+        <h3 class="text-[18px] font-semibold text-black mb-1">Resident Access QR</h3>
+        <p class="text-[12px] text-gray-500 mb-4">Scan at gate scanner for entry</p>
+
+        <div class="p-3 bg-white rounded-2xl shadow-sm mb-4 border border-gray-100">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=EMAAR_BOULEVARD_2D35_ALI" alt="QR Code" class="w-44 h-44 object-contain">
+        </div>
+
+        <button onclick="toggleQRModal()" class="w-full bg-[#007aff] text-white font-medium py-2.5 rounded-xl text-[15px] active:opacity-80 transition-opacity">
+          Done
+        </button>
       </div>
     </div>
 
-    <!-- Main Outer Card Container with Top Extension for Photo Overlap -->
-    <div class="w-full bg-[#eceef2] rounded-[30px] overflow-hidden shadow-xs pt-32">
-      
-      <!-- Username & Type Banner (Straight full-width bar, no side gaps) -->
-      <div class="bg-[#a3db95] px-5 py-3 flex justify-between items-end w-full">
-        <div>
-          <div class="text-[13.5px] text-slate-700 font-normal leading-none mb-1">Username</div>
-          <div class="text-[18px] font-bold text-slate-900 leading-none">Ali Abdelaziz</div>
-        </div>
-        <div class="text-right">
-          <div class="text-[13.5px] text-slate-700 font-normal leading-none mb-1">Type</div>
-          <div class="text-[18px] font-bold text-slate-900 leading-none">Resident</div>
-        </div>
-      </div>
+  </div>
 
-      <!-- Unit Box Section -->
-      <div class="p-5 flex justify-between items-center bg-[#eceef2]">
-<!-- ... existing code ... -->
+  <script>
+    let isCountingDown = false;
+    let countdownTimer = null;
+
+    function startInButtonCountdown() {
+      if (isCountingDown) return;
+      isCountingDown = true;
+
+      const btn = document.getElementById('openGateBtn');
+      const btnText = document.getElementById('btnText');
+      if (!btn || !btnText) return;
+
+      let count = 5;
+      btnText.textContent = `Opening gate in ${count}...`;
+      btn.classList.add('opacity-90', 'cursor-not-allowed');
+
+      countdownTimer = setInterval(() => {
+        count--;
+        if (count > 0) {
+          btnText.textContent = `Opening gate in ${count}...`;
+        } else {
+          clearInterval(countdownTimer);
+          btnText.textContent = "Gate Opened!";
+          btn.classList.remove('bg-[#6d7177]');
+          btn.classList.add('bg-emerald-600');
+
+          setTimeout(() => {
+            btnText.textContent = "Open Gate";
+            btn.classList.remove('bg-emerald-600', 'opacity-90', 'cursor-not-allowed');
+            btn.classList.add('bg-[#6d7177]');
+            isCountingDown = false;
+          }, 2000);
+        }
+      }, 1000);
+    }
+
+    function toggleQRModal() {
+      const qrModal = document.getElementById('qrModal');
+      if (qrModal) qrModal.classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>
